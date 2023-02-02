@@ -1,3 +1,5 @@
+import 'package:amazon_clone/resources/authentication_method.dart';
+import 'package:amazon_clone/screens/sign_in_screen.dart';
 import 'package:amazon_clone/utils/constants.dart';
 import 'package:amazon_clone/utils/utils.dart';
 import 'package:amazon_clone/widgets/custom_main_button.dart';
@@ -16,6 +18,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController addresscontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  Authenticationmethods authenticationmethods = Authenticationmethods();
 
   @override
   void dispose() {
@@ -107,7 +110,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  String output =
+                                      await authenticationmethods.signUpuser(
+                                    name: namecontroller.text,
+                                    address: addresscontroller.text,
+                                    email: emailcontroller.text,
+                                    password: passwordcontroller.text,
+                                  );
+                                  if (output == "success") {
+                                    //function
+                                  } else {
+                                    Utils().showSnackBar(
+                                        context: context, content: output);
+                                  }
+                                },
                               ),
                             ),
                           ],
@@ -118,7 +135,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   CustomMainButton(
                     color: const Color.fromARGB(255, 212, 212, 212),
                     onPressed: () {
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const SignInScreen();
+                          },
+                        ),
+                      );
                     },
                     isLoading: false,
                     child: const Text(

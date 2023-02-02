@@ -1,3 +1,4 @@
+import 'package:amazon_clone/resources/authentication_method.dart';
 import 'package:amazon_clone/screens/sign_up_screen.dart';
 import 'package:amazon_clone/utils/constants.dart';
 import 'package:amazon_clone/utils/utils.dart';
@@ -15,6 +16,7 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  Authenticationmethods authenticationmethods = Authenticationmethods();
 
   @override
   void dispose() {
@@ -82,7 +84,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           alignment: Alignment.center,
                           child: CustomMainButton(
                             color: const Color(0xfffed813),
-                            onPressed: () {},
                             isLoading: false,
                             child: const Text(
                               "Sign In",
@@ -91,6 +92,17 @@ class _SignInScreenState extends State<SignInScreen> {
                                 color: Colors.black,
                               ),
                             ),
+                            onPressed: () async {
+                              String output =
+                                  await authenticationmethods.signInuser(
+                                      email: emailcontroller.text,
+                                      password: passwordcontroller.text);
+                              if (output == "success") {
+                              } else {
+                                Utils().showSnackBar(
+                                    context: context, content: output);
+                              }
+                            },
                           ),
                         ),
                       ],
@@ -132,7 +144,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
