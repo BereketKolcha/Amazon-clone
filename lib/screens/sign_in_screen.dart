@@ -17,6 +17,7 @@ class _SignInScreenState extends State<SignInScreen> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   Authenticationmethods authenticationmethods = Authenticationmethods();
+  bool isLoading = false;
 
   @override
   void dispose() {
@@ -84,7 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           alignment: Alignment.center,
                           child: CustomMainButton(
                             color: const Color(0xfffed813),
-                            isLoading: false,
+                            isLoading: isLoading,
                             child: const Text(
                               "Sign In",
                               style: TextStyle(
@@ -93,10 +94,19 @@ class _SignInScreenState extends State<SignInScreen> {
                               ),
                             ),
                             onPressed: () async {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              Future.delayed(
+                                const Duration(seconds: 1),
+                              );
                               String output =
                                   await authenticationmethods.signInuser(
                                       email: emailcontroller.text,
                                       password: passwordcontroller.text);
+                              setState(() {
+                                isLoading = false;
+                              });
                               if (output == "success") {
                               } else {
                                 Utils().showSnackBar(

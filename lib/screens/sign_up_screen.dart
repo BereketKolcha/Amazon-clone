@@ -19,6 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController addresscontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   Authenticationmethods authenticationmethods = Authenticationmethods();
+  bool isLoading = false;
 
   @override
   void dispose() {
@@ -102,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignment: Alignment.center,
                               child: CustomMainButton(
                                 color: const Color(0xfffed813),
-                                isLoading: false,
+                                isLoading: isLoading,
                                 child: const Text(
                                   "Sign Up",
                                   style: TextStyle(
@@ -111,6 +112,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ),
                                 ),
                                 onPressed: () async {
+                                  setState(() {
+                                    isLoading = true;
+                                  });
+                                  Future.delayed(
+                                    const Duration(seconds: 1),
+                                  );
                                   String output =
                                       await authenticationmethods.signUpuser(
                                     name: namecontroller.text,
@@ -118,8 +125,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     email: emailcontroller.text,
                                     password: passwordcontroller.text,
                                   );
+                                  setState(() {
+                                    isLoading = false;
+                                  });
                                   if (output == "success") {
-                                    //function
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => const SignInScreen(),
+                                      ),
+                                    );
                                   } else {
                                     Utils().showSnackBar(
                                         context: context, content: output);

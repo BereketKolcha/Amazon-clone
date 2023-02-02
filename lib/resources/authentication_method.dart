@@ -44,6 +44,7 @@ class Authenticationmethods {
       try {
         await firebaseAuth.signInWithEmailAndPassword(
             email: email, password: password);
+        output = "success";
       } on FirebaseAuthException catch (e) {
         output = e.message.toString();
       }
