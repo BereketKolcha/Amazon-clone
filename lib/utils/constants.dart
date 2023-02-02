@@ -49,3 +49,92 @@ const List<String> largeAds = [
   "https://m.media-amazon.com/images/I/61fiSvze0eL._SX3000_.jpg",
   "https://m.media-amazon.com/images/I/61PzxXMH-0L._SX3000_.jpg",
 ];
+
+const List<String> smallAds = [
+  "https://m.media-amazon.com/images/I/11M5KkkmavL._SS70_.png",
+  "https://m.media-amazon.com/images/I/11iTpTDy6TL._SS70_.png",
+  "https://m.media-amazon.com/images/I/11dGLeeNRcL._SS70_.png",
+  "https://m.media-amazon.com/images/I/11kOjZtNhnL._SS70_.png",
+];
+
+const List<String> adItemNames = [
+  "Amazon Pay",
+  "Recharge",
+  "Rewards",
+  "Pay Bills"
+];
+
+//Dont even attemp to scroll to the end of this manually lmao
+const String amazonLogo =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png";
+
+// List<Widget> testChildren = [
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+//         productName: "Rick Astley",
+//         cost: 9999999999999,
+//         discount: 0,
+//         uid: "eioejfbkn",
+//         sellerName: "Rick Seller",
+//         sellerUid: "983498ihjb",
+//         rating: 1,
+//         noOfRating: 1),
+//   ),
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+//         productName: "Rick Astley",
+//         cost: 9999999999999,
+//         discount: 0,
+//         uid: "eioejfbkn",
+//         sellerName: "Rick Seller",
+//         sellerUid: "983498ihjb",
+//         rating: 1,
+//         noOfRating: 1),
+//   ),
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+//         productName: "Rick Astley",
+//         cost: 9999999999999,
+//         discount: 0,
+//         uid: "eioejfbkn",
+//         sellerName: "Rick Seller",
+//         sellerUid: "983498ihjb",
+//         rating: 1,
+//         noOfRating: 1),
+//   ),
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+//         productName: "Rick Astley",
+//         cost: 9999999999999,
+//         discount: 0,
+//         uid: "eioejfbkn",
+//         sellerName: "Rick Seller",
+//         sellerUid: "983498ihjb",
+//         rating: 1,
+//         noOfRating: 1),
+//   ),
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+//         productName: "Rick Astley",
+//         cost: 9999999999999,
+//         discount: 0,
+//         uid: "eioejfbkn",
+//         sellerName: "Rick Seller",
+//         sellerUid: "983498ihjb",
+//         rating: 1,
+//         noOfRating: 1),
+//   )
+// ];
+
+List<String> keysOfRating = [
+  "Very bad",
+  "Poor",
+  "Average",
+  "Good",
+  "Excellent"
+];
