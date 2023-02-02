@@ -99,7 +99,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignment: Alignment.center,
                               child: CustomMainButton(
                                 color: const Color(0xfffed813),
-                                onPressed: () {},
                                 isLoading: false,
                                 child: const Text(
                                   "Sign Up",
@@ -108,6 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     color: Colors.black,
                                   ),
                                 ),
+                                onPressed: () {},
                               ),
                             ),
                           ],
