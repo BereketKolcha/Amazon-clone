@@ -1,3 +1,4 @@
+import 'package:amazon_clone/layout/screen_layout.dart';
 import 'package:amazon_clone/screens/sign_in_screen.dart';
 import 'package:amazon_clone/utils/color_themes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     Firebase.initializeApp(
       options: const FirebaseOptions(
@@ -45,11 +46,7 @@ class AmazonClone extends StatelessWidget {
               ),
             );
           } else if (user.hasData) {
-            return ElevatedButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                },
-                child: const Text("Sign out"));
+            return const ScreenLayout();
           } else {
             return const SignInScreen();
           }

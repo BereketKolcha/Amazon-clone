@@ -4,6 +4,7 @@
 // import 'package:amazon_clone/screens/home_screen.dart';
 // import 'package:amazon_clone/screens/more_screen.dart';
 // import 'package:amazon_clone/widgets/simple_product_widget.dart';
+import 'package:amazon_clone/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 const double kAppBarHeight = 80;
@@ -24,7 +25,7 @@ const List<String> categoriesList = [
 ];
 
 const List<Widget> screens = [
-  // HomeScreen(),
+  HomeScreen(),
   // AccountScreen(),
   // CartScreen(),
   // MoreScreen(),

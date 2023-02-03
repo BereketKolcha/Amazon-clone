@@ -1,3 +1,4 @@
+import 'package:amazon_clone/model/user_detail.dart';
 import 'package:amazon_clone/resources/cloudfirestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -20,14 +21,14 @@ class Authenticationmethods {
       try {
         await firebaseAuth.createUserWithEmailAndPassword(
             email: email, password: password);
-        await cloudFirestoreClass.uploadNameAndAddress(
-            name: name, address: address);
+        UserDetailsModel user = UserDetailsModel(name: name, address: address);
+        await cloudFirestoreClass.uploadNameAndAddress(user: user);
         output = "success";
       } on FirebaseAuthException catch (e) {
         output = e.message.toString();
       }
     } else {
-      output = "please fillup all";
+      output = "please fillup all input field";
     }
     return output;
   }
